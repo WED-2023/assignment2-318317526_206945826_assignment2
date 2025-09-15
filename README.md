@@ -1,48 +1,80 @@
-# Space Invaders - Multi-Screen HTML5 Game
 
-A comprehensive web application built with HTML5, CSS3, and JavaScript, featuring a multi-screen interface with user authentication, registration system, and a classic Space Invaders arcade game.
+# Space Invaders Web Game
 
-## 🎮 Project Overview
+An interactive Space Invaders game built with HTML5, CSS3, and JavaScript. Play directly in your browser, enjoy classic arcade gameplay, and customize your experience!
 
-This project was developed for the **Web Development Environments** course at **Ben-Gurion University of the Negev**. It demonstrates advanced web development techniques including multi-screen navigation, user authentication, form validation, and interactive game development.
+## 🎮 Game Overview
 
-## 👨‍💻 Developer Information
+This project is a modern take on the classic Space Invaders game, developed for the Web Development Environments course at Ben-Gurion University of the Negev. It features smooth gameplay, responsive design, and a simple user interface.
 
-- **Student Name:** Tom Badash
-- **Student ID:** 318317526
-- **Student Email:** tombadas@post.bgu.ac.il
-- **Student Name:** Einav Cohen
-- **Student ID:** 206945826
-- **Student Email:** einav2@post.bgu.ac.il
-- **Course:** Web Development Environments
-- **University:** Ben-Gurion University of the Negev
-- **Semester:** 2024
+## 👨‍💻 Developers
+...existing code...
 
-## 🚀 Features Implemented
 
-### Core Application Features
-- **Multi-Screen Navigation System** - Seamless transitions between different application screens
-- **User Registration System** - Comprehensive form with validation
-- **User Authentication** - Secure login system with session management
-- **Responsive Design** - Optimized for 1366x768 minimum resolution
-- **Modal Dialog System** - Professional about modal with multiple close options
+## 🚀 Features
 
-### Game Features
-- **Space Invaders Gameplay** - Classic arcade-style shooting game
-- **Enemy Formation** - 20 enemy ships in 4x5 grid formation
-- **Movement System** - Enemies move together left and right, descending when hitting walls
-- **Shooting Mechanics** - Player shoots upward, enemies shoot randomly downward
-- **Scoring System** - Points based on enemy row (5, 10, 15, 20 points)
-- **Lives System** - Three lives with respawn at random bottom position
-- **Speed Progression** - Enemies speed up every 5 seconds (max 4 times)
-- **Victory Condition** - Destroy all enemy ships to win
+- Classic Space Invaders gameplay
+- 20 enemy ships in a 4x5 grid formation
+- Player spaceship with movement and shooting
+- Enemy movement and shooting mechanics
+- Scoring system based on enemy row
+- Three lives system with respawn
+- Speed progression for enemies
+- Victory and game over conditions
+- Responsive design for desktop screens
+- Sound effects for hits and background
 
-### User Interface Features
-- **Modern Design** - Gradient backgrounds and smooth animations
-- **Professional Layout** - Header, navigation, content, and footer sections
-- **Form Validation** - Real-time validation with helpful error messages
-- **Message System** - Toast notifications for user feedback
-- **Accessibility** - Keyboard navigation and screen reader support
+## 🗂️ Project Structure
+
+```
+├── index.html         # Main HTML file
+├── styles.css         # Game and UI styling
+├── game.js            # Game logic and mechanics
+├── assets/
+│   ├── image/
+│   │   └── cover.jpg  # Game cover image
+│   └── audio/
+│       ├── background-sound.wav
+│       ├── enemy-hit.mp3
+│       └── spaceship-hit.mp3
+└── README.md          # Project documentation
+```
+
+## 🕹️ How to Play
+
+1. Open `index.html` in your browser.
+2. Use arrow keys or WASD to move your spaceship (bottom of the screen).
+3. Press spacebar to shoot upward.
+4. Destroy all enemy ships to win.
+5. Avoid enemy bullets and try to keep your lives.
+6. Score points based on which row of enemies you hit.
+
+## 🎨 Customization
+
+- Change player, enemy, and bullet colors in the configuration screen (if available).
+- Game sounds can be toggled on/off.
+
+## 🔊 Assets
+
+- All images and sounds are located in the `assets/` folder.
+  - `image/cover.jpg`: Game cover
+  - `audio/background-sound.wav`: Background music
+  - `audio/enemy-hit.mp3`: Enemy hit sound
+  - `audio/spaceship-hit.mp3`: Spaceship hit sound
+
+## 🛠️ Technologies Used
+
+- HTML5 (Canvas)
+- CSS3
+- JavaScript (ES6)
+
+## 📄 License
+
+This project is for educational purposes as part of the Web Development Environments course at Ben-Gurion University of the Negev.
+
+---
+
+Enjoy playing Space Invaders! 🚀
 
 ## 🛠️ Technical Implementation
 
@@ -180,7 +212,7 @@ This project was developed for the **Web Development Environments** course at **
 6. **Enjoy** the gaming experience!
 
 ### Test User Credentials
-- **Username:** `testuser`
+- **Username:** `p`
 - **Password:** `testuser`
 
 ## 🎮 How to Play
