@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adventure Quest - Multi-Screen Game</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0iIzRDQUY1MCIvPgo8cGF0aCBkPSJNMTIgMjBMMjAgMTJMMjggMjBMMjAgMjhMMTIgMjBaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K"
+            alt="Game Logo"
+          />
+          <h1>Adventure Quest</h1>
+        </div>
+        <nav class="main-menu">
+          <ul>
+            <li><a href="#" class="nav-link" data-screen="welcome">Home</a></li>
+            <li>
+              <a href="#" class="nav-link" data-screen="register">Register</a>
+            </li>
+            <li><a href="#" class="nav-link" data-screen="login">Login</a></li>
+            <li>
+              <a href="#" class="nav-link" data-screen="game">Play Game</a>
+            </li>
+            <li><a href="#" class="about-link">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Welcome Screen -->
+      <div id="welcome-screen" class="screen active">
+        <div class="welcome-content">
+          <div class="welcome-logo">
+            <img
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiByeD0iMjQiIGZpbGw9IiM0Q0FGNTAiLz4KPHBhdGggZD0iTTM2IDYwTDUwIDM2TDYwIDYwTDUwIDg0TDM2IDYwWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg=="
+              alt="Welcome Logo"
+            />
+          </div>
+          <h2>Welcome to Space Invaders</h2>
+          <div class="student-info">
+            <p><strong>Student ID:</strong> 318317526</p>
+            <p><strong>Student Name:</strong> Tom Badash</p>
+            <p><strong>Student ID:</strong> 206945826</p>
+            <p><strong>Student Name:</strong> Einav Cohen</p>
+            <p><strong>Course:</strong> Web Development Environments</p>
+            <p><strong>University:</strong> Ben-Gurion University</p>
+          </div>
+          <div class="home-links">
+            <a href="mailto:tombadas@post.bgu.ac.il" class="home-link"
+              >Contact Tom</a
+            >
+            <a href="mailto:einav2@post.bgu.ac.il" class="home-link"
+              >Contact Einav</a
+            >
+          </div>
+          <div class="welcome-buttons">
+            <button class="btn btn-primary welcome-btn" data-screen="register">
+              Register Now
+            </button>
+            <button class="btn btn-secondary welcome-btn" data-screen="login">
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Registration Screen -->
+      <div id="register-screen" class="screen">
+        <div class="form-container">
+          <h2>User Registration</h2>
+          <form id="register-form" class="auth-form">
+            <div class="form-group">
+              <label for="reg-username">Username:</label>
+              <input type="text" id="reg-username" name="username" required />
+            </div>
+            <div class="form-group">
+              <label for="reg-password">Password:</label>
+              <input
+                type="password"
+                id="reg-password"
+                name="password"
+                required
+              />
+              <small
+                >Must contain at least 8 characters with letters and
+                numbers</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="reg-confirm-password">Confirm Password:</label>
+              <input
+                type="password"
+                id="reg-confirm-password"
+                name="confirmPassword"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="reg-firstname">First Name:</label>
+              <input type="text" id="reg-firstname" name="firstname" required />
+            </div>
+            <div class="form-group">
+              <label for="reg-lastname">Last Name:</label>
+              <input type="text" id="reg-lastname" name="lastname" required />
+            </div>
+            <div class="form-group">
+              <label for="reg-email">Email:</label>
+              <input type="email" id="reg-email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label>Date of Birth:</label>
+              <div class="date-inputs">
+                <select id="reg-day" name="day" required>
+                  <option value="">Day</option>
+                </select>
+                <select id="reg-month" name="month" required>
+                  <option value="">Month</option>
+                </select>
+                <select id="reg-year" name="year" required>
+                  <option value="">Year</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Register</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-screen="welcome"
+              >
+                Back to Home
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Login Screen -->
+      <div id="login-screen" class="screen">
+        <div class="form-container">
+          <h2>User Login</h2>
+          <form id="login-form" class="auth-form">
+            <div class="form-group">
+              <label for="login-username">Username:</label>
+              <input type="text" id="login-username" name="username" required />
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password:</label>
+              <input
+                type="password"
+                id="login-password"
+                name="password"
+                required
+              />
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Login</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-screen="welcome"
+              >
+                Back to Home
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Configuration Screen -->
+      <div id="config-screen" class="screen">
+        <div class="form-container">
+          <h2>Game Configuration</h2>
+          <form id="config-form" class="config-form">
+            <div class="config-section">
+              <h3>Controls</h3>
+              <div class="form-group">
+                <label for="shoot-key">Shoot Key:</label>
+                <select id="shoot-key" name="shootKey" required>
+                  <option value="Space">Space</option>
+                  <option value="KeyA">A</option>
+                  <option value="KeyB">B</option>
+                  <option value="KeyC">C</option>
+                  <option value="KeyD">D</option>
+                  <option value="KeyE">E</option>
+                  <option value="KeyF">F</option>
+                  <option value="KeyG">G</option>
+                  <option value="KeyH">H</option>
+                  <option value="KeyI">I</option>
+                  <option value="KeyJ">J</option>
+                  <option value="KeyK">K</option>
+                  <option value="KeyL">L</option>
+                  <option value="KeyM">M</option>
+                  <option value="KeyN">N</option>
+                  <option value="KeyO">O</option>
+                  <option value="KeyP">P</option>
+                  <option value="KeyQ">Q</option>
+                  <option value="KeyR">R</option>
+                  <option value="KeyS">S</option>
+                  <option value="KeyT">T</option>
+                  <option value="KeyU">U</option>
+                  <option value="KeyV">V</option>
+                  <option value="KeyW">W</option>
+                  <option value="KeyX">X</option>
+                  <option value="KeyY">Y</option>
+                  <option value="KeyZ">Z</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="config-section">
+              <h3>Game Settings</h3>
+              <div class="form-group">
+                <label for="game-time">Game Time (minutes):</label>
+                <input
+                  type="number"
+                  id="game-time"
+                  name="gameTime"
+                  min="2"
+                  max="30"
+                  value="5"
+                  required
+                />
+                <small>Minimum: 2 minutes, Maximum: 30 minutes</small>
+              </div>
+            </div>
+
+            <div class="config-section">
+              <h3>Visual Settings</h3>
+              <div class="form-group">
+                <label for="player-color">Player Ship Color:</label>
+                <input
+                  type="color"
+                  id="player-color"
+                  name="playerColor"
+                  value="#4CAF50"
+                />
+              </div>
+              <div class="form-group">
+                <label for="enemy-color">Enemy Ship Color:</label>
+                <input
+                  type="color"
+                  id="enemy-color"
+                  name="enemyColor"
+                  value="#FF4444"
+                />
+              </div>
+              <div class="form-group">
+                <label for="player-bullet-color">Player Bullet Color:</label>
+                <input
+                  type="color"
+                  id="player-bullet-color"
+                  name="playerBulletColor"
+                  value="#FFFF00"
+                />
+              </div>
+              <div class="form-group">
+                <label for="enemy-bullet-color">Enemy Bullet Color:</label>
+                <input
+                  type="color"
+                  id="enemy-bullet-color"
+                  name="enemyBulletColor"
+                  value="#FF0000"
+                />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Start Game</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-screen="welcome"
+              >
+                Back to Home
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Game Screen -->
+      <div id="game-screen" class="screen">
+        <div class="game-container">
+          <div class="game-header">
+            <h2>Space Invaders</h2>
+            <div class="game-stats">
+              <div class="stat">
+                <span class="label">Score:</span>
+                <span id="score">0</span>
+              </div>
+              <div class="stat">
+                <span class="label">Lives:</span>
+                <span id="lives">3</span>
+              </div>
+              <div class="stat">
+                <span class="label">Level:</span>
+                <span id="level">1</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="game-area">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+            <div id="gameOverlay" class="game-overlay hidden">
+              <div class="overlay-content">
+                <h2 id="overlayTitle">Game Over</h2>
+                <p id="overlayMessage">Click to restart</p>
+                <button id="restartBtn" class="btn">Restart Game</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="game-controls">
+            <div class="control-group">
+              <button id="startBtn" class="btn btn-primary">Start Game</button>
+              <button id="pauseBtn" class="btn btn-secondary">Pause</button>
+              <button class="btn btn-secondary" data-screen="welcome">
+                Exit Game
+              </button>
+            </div>
+            <div class="instructions">
+              <p>
+                <strong>Controls:</strong> Use Arrow Keys or WASD to move,
+                <span id="shoot-key-display">SPACE</span> to shoot
+              </p>
+              <p>
+                <strong>Objective:</strong> Destroy all enemy ships before time
+                runs out!
+              </p>
+              <p>
+                <strong>Scoring:</strong> Bottom row: 5pts, 3rd row: 10pts, 2nd
+                row: 15pts, Top row: 20pts
+              </p>
+              <p>
+                <strong>Time Limit:</strong>
+                <span id="time-limit-display">5 minutes</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Player Records Table -->
+          <div class="player-records">
+            <h3>Your Records</h3>
+            <table id="records-table" class="records-table">
+              <tr>
+                <th>Finish Time</th>
+                <th>Score</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Adventure Quest</h3>
+          <p>
+            An exciting HTML5 game developed for Web Development Environments
+            course
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Information</h3>
+          <p><strong>Student:</strong> Tom Badash</p>
+          <p><strong>ID:</strong> 318317526</p>
+          <p><strong>Email:</strong> tombadas@post.bgu.ac.il</p>
+          <p><strong>Student:</strong> Einav Cohen</p>
+          <p><strong>Student ID:</strong> 206945826</p>
+          <p><strong>Student Email:</strong> einav2@post.bgu.ac.il</p>
+        </div>
+        <div class="footer-section">
+          <h3>University</h3>
+          <p>Ben-Gurion University of the Negev</p>
+          <p>Department of Information Systems Engineering</p>
+          <p>Web Development Environments Course</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Adventure Quest. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- About Modal -->
+    <div id="about-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>About Space Invaders</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="about-section">
+            <h3>Project Information</h3>
+            <p><strong>Course:</strong> Web Development Environments</p>
+            <p>
+              <strong>University:</strong> Ben-Gurion University of the Negev
+            </p>
+            <p><strong>Semester:</strong> 2024</p>
+          </div>
+
+          <div class="about-section">
+            <h3>Developers</h3>
+            <ul>
+              <li><strong>Tom Badash</strong> - Student ID: 318317526</li>
+              <li><strong>Email:</strong> tombadas@post.bgu.ac.il</li>
+              <li><strong>Einav Cohen</strong> - Student ID: 206945826</li>
+              <li><strong>Email:</strong> einav2@post.bgu.ac.il</li>
+              <li><strong>Development Role:</strong> Full-stack development</li>
+            </ul>
+          </div>
+
+          <div class="about-section">
+            <h3>Technologies Used</h3>
+            <ul>
+              <li>
+                <strong>HTML5:</strong> Semantic markup and canvas for game
+                rendering
+              </li>
+              <li>
+                <strong>CSS3:</strong> Modern styling with gradients,
+                animations, and responsive design
+              </li>
+              <li>
+                <strong>JavaScript (ES6+):</strong> Game engine, user
+                authentication, and DOM manipulation
+              </li>
+              <li>
+                <strong>jQuery:</strong> Used for DOM manipulation and modal
+                functionality
+              </li>
+            </ul>
+          </div>
+
+          <div class="about-section">
+            <h3>Game Features</h3>
+            <ul>
+              <li>
+                <strong>Space Invaders Gameplay:</strong> Classic arcade-style
+                shooting game
+              </li>
+              <li>
+                <strong>Enemy Formation:</strong> 20 enemy ships in 4x5 grid
+                formation
+              </li>
+              <li>
+                <strong>Movement System:</strong> Enemies move together left and
+                right, descending when hitting walls
+              </li>
+              <li>
+                <strong>Shooting Mechanics:</strong> Player shoots upward,
+                enemies shoot randomly downward
+              </li>
+              <li>
+                <strong>Scoring System:</strong> Points based on enemy row (5,
+                10, 15, 20 points)
+              </li>
+              <li>
+                <strong>Lives System:</strong> 3 lives with respawn at random
+                bottom position
+              </li>
+              <li>
+                <strong>Speed Progression:</strong> Enemies speed up every 5
+                seconds (max 4 times)
+              </li>
+              <li>
+                <strong>Victory Condition:</strong> Destroy all enemy ships to
+                win
+              </li>
+            </ul>
+          </div>
+
+          <div class="about-section">
+            <h3>Application Features</h3>
+            <ul>
+              <li>Multi-screen navigation system</li>
+              <li>User registration with comprehensive validation</li>
+              <li>User authentication system</li>
+              <li>HTML5 Canvas-based game engine</li>
+              <li>Responsive design for 1366x768+ resolution</li>
+              <li>Modal dialogs using jQuery</li>
+              <li>Form validation and error handling</li>
+            </ul>
+          </div>
+
+          <div class="about-section">
+            <h3>Game Development Challenges</h3>
+            <ul>
+              <li>
+                <strong>Enemy Movement Coordination:</strong> Synchronizing 20
+                enemies to move together and change direction
+              </li>
+              <li>
+                <strong>Shooting Mechanics:</strong> Implementing realistic
+                enemy shooting patterns and collision detection
+              </li>
+              <li>
+                <strong>Speed Progression:</strong> Balancing difficulty
+                increase while maintaining playability
+              </li>
+              <li>
+                <strong>Collision Detection:</strong> Accurate hit detection
+                between bullets and ships
+              </li>
+              <li>
+                <strong>Game Balance:</strong> Creating fair scoring system and
+                difficulty progression
+              </li>
+            </ul>
+          </div>
+
+          <div class="about-section">
+            <h3>Application Development Challenges</h3>
+            <ul>
+              <li>
+                <strong>Canvas Performance:</strong> Optimizing game loop for
+                smooth 60fps gameplay
+              </li>
+              <li>
+                <strong>Form Validation:</strong> Implementing comprehensive
+                client-side validation
+              </li>
+              <li>
+                <strong>Responsive Design:</strong> Ensuring proper layout
+                across different screen sizes
+              </li>
+              <li>
+                <strong>State Management:</strong> Managing user authentication
+                and game state
+              </li>
+              <li>
+                <strong>Modal Implementation:</strong> Creating accessible modal
+                dialogs with proper event handling
+              </li>
+            </ul>
+          </div>
+
+          <div class="about-section">
+            <h3>Technical Notes</h3>
+            <ul>
+              <li>
+                <strong>Templates:</strong> No external templates were used -
+                all HTML was custom-built
+              </li>
+              <li>
+                <strong>jQuery Plugins:</strong> Only core jQuery library was
+                used, no additional plugins
+              </li>
+              <li>
+                <strong>Browser Compatibility:</strong> Optimized for Chrome
+                with 1366x768 minimum resolution
+              </li>
+              <li>
+                <strong>Code Organization:</strong> Modular JavaScript with
+                class-based architecture
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Message Display -->
+    <div id="message-display" class="message-display"></div>
+
+    <script src="game.js"></script>
+    <script>
+      // Main Application Controller
+      class AppController {
+        constructor() {
+          this.currentScreen = "welcome";
+          this.isLoggedIn = false;
+          this.currentUser = null;
+          this.gameConfig = {
+            shootKey: "Space",
+            gameTime: 5,
+            playerColor: "#4CAF50",
+            enemyColor: "#FF4444",
+            playerBulletColor: "#FFFF00",
+            enemyBulletColor: "#FF0000",
+          };
+
+          // Initialize user database with test user
+          this.users = [
+            {
+              username: "testuser",
+              password: "testuser",
+              firstname: "Test",
+              lastname: "User",
+              email: "test@example.com",
+              birthdate: "1990-01-01",
+            },
+          ];
+
+          this.init();
+        }
+
+        init() {
+          this.setupEventListeners();
+          this.populateDateSelects();
+          this.showScreen("welcome");
+        }
+
+        setupEventListeners() {
+          // Navigation links
+          document.querySelectorAll(".nav-link").forEach((link) => {
+            link.addEventListener("click", (e) => {
+              e.preventDefault();
+              const screen = e.target.dataset.screen;
+              this.navigateToScreen(screen);
+            });
+          });
+
+          // Welcome screen buttons
+          document.querySelectorAll(".welcome-btn").forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+              const screen = e.target.dataset.screen;
+              this.navigateToScreen(screen);
+            });
+          });
+
+          // About modal
+          document
+            .querySelector(".about-link")
+            .addEventListener("click", (e) => {
+              e.preventDefault();
+              this.showAboutModal();
+            });
+
+          // Modal close events
+          document.querySelector(".close").addEventListener("click", () => {
+            this.hideAboutModal();
+          });
+
+          document
+            .getElementById("about-modal")
+            .addEventListener("click", (e) => {
+              if (e.target.id === "about-modal") {
+                this.hideAboutModal();
+              }
+            });
+
+          // ESC key to close modal
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+              this.hideAboutModal();
+            }
+          });
+
+          // Form submissions
+          document
+            .getElementById("register-form")
+            .addEventListener("submit", (e) => {
+              e.preventDefault();
+              this.handleRegistration();
+            });
+
+          document
+            .getElementById("login-form")
+            .addEventListener("submit", (e) => {
+              e.preventDefault();
+              this.handleLogin();
+            });
+
+          // Configuration form
+          document
+            .getElementById("config-form")
+            .addEventListener("submit", (e) => {
+              e.preventDefault();
+              this.handleConfiguration();
+            });
+
+          // Back buttons
+          document
+            .querySelectorAll('[data-screen="welcome"]')
+            .forEach((btn) => {
+              btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                this.navigateToScreen("welcome");
+              });
+            });
+        }
+
+        navigateToScreen(screen) {
+          // Check if user needs to be logged in for game screen
+          if (screen === "game" && !this.isLoggedIn) {
+            this.showMessage("Please login first to access the game.", "error");
+            this.navigateToScreen("login");
+            return;
+          }
+
+          this.showScreen(screen);
+        }
+
+        showScreen(screenId) {
+          // Hide all screens
+          document.querySelectorAll(".screen").forEach((screen) => {
+            screen.classList.remove("active");
+          });
+
+          // Show target screen
+          const targetScreen = document.getElementById(`${screenId}-screen`);
+          if (targetScreen) {
+            targetScreen.classList.add("active");
+            this.currentScreen = screenId;
+          }
+        }
+
+        populateDateSelects() {
+          const daySelect = document.getElementById("reg-day");
+          const monthSelect = document.getElementById("reg-month");
+          const yearSelect = document.getElementById("reg-year");
+
+          // Populate days
+          for (let i = 1; i <= 31; i++) {
+            const option = document.createElement("option");
+            option.value = i;
+            option.textContent = i;
+            daySelect.appendChild(option);
+          }
+
+          // Populate months
+          const months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ];
+          months.forEach((month, index) => {
+            const option = document.createElement("option");
+            option.value = index + 1;
+            option.textContent = month;
+            monthSelect.appendChild(option);
+          });
+
+          // Populate years (1900 to current year)
+          const currentYear = new Date().getFullYear();
+          for (let i = currentYear; i >= 1900; i--) {
+            const option = document.createElement("option");
+            option.value = i;
+            option.textContent = i;
+            yearSelect.appendChild(option);
+          }
+        }
+
+        handleRegistration() {
+          const formData = new FormData(
+            document.getElementById("register-form")
+          );
+          const userData = {
+            username: formData.get("username"),
+            password: formData.get("password"),
+            confirmPassword: formData.get("confirmPassword"),
+            firstname: formData.get("firstname"),
+            lastname: formData.get("lastname"),
+            email: formData.get("email"),
+            day: formData.get("day"),
+            month: formData.get("month"),
+            year: formData.get("year"),
+          };
+
+          // Validation
+          const validation = this.validateRegistration(userData);
+          if (!validation.isValid) {
+            this.showMessage(validation.message, "error");
+            return;
+          }
+
+          // Check if username already exists
+          if (this.users.find((user) => user.username === userData.username)) {
+            this.showMessage(
+              "Username already exists. Please choose a different username.",
+              "error"
+            );
+            return;
+          }
+
+          // Create user
+          const newUser = {
+            username: userData.username,
+            password: userData.password,
+            firstname: userData.firstname,
+            lastname: userData.lastname,
+            email: userData.email,
+            birthdate: `${userData.year}-${userData.month.padStart(
+              2,
+              "0"
+            )}-${userData.day.padStart(2, "0")}`,
+          };
+
+          this.users.push(newUser);
+          this.showMessage(
+            "Registration successful! You can now login.",
+            "success"
+          );
+
+          // Clear form
+          document.getElementById("register-form").reset();
+
+          // Navigate to login
+          setTimeout(() => {
+            this.navigateToScreen("login");
+          }, 2000);
+        }
+
+        validateRegistration(userData) {
+          // Check if all fields are filled
+          for (let key in userData) {
+            if (!userData[key]) {
+              return { isValid: false, message: "All fields are required." };
+            }
+          }
+
+          // Password validation
+          if (userData.password.length < 8) {
+            return {
+              isValid: false,
+              message: "Password must be at least 8 characters long.",
+            };
+          }
+
+          if (
+            !/\d/.test(userData.password) ||
+            !/[a-zA-Z]/.test(userData.password)
+          ) {
+            return {
+              isValid: false,
+              message: "Password must contain both letters and numbers.",
+            };
+          }
+
+          // Password confirmation
+          if (userData.password !== userData.confirmPassword) {
+            return { isValid: false, message: "Passwords do not match." };
+          }
+
+          // Name validation (no numbers)
+          if (/\d/.test(userData.firstname) || /\d/.test(userData.lastname)) {
+            return {
+              isValid: false,
+              message: "First name and last name cannot contain numbers.",
+            };
+          }
+
+          // Email validation
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(userData.email)) {
+            return {
+              isValid: false,
+              message: "Please enter a valid email address.",
+            };
+          }
+
+          return { isValid: true };
+        }
+
+        handleLogin() {
+          const formData = new FormData(document.getElementById("login-form"));
+          const username = formData.get("username");
+          const password = formData.get("password");
+
+          // Find user
+          const user = this.users.find(
+            (u) => u.username === username && u.password === password
+          );
+
+          if (user) {
+            this.isLoggedIn = true;
+            this.currentUser = user;
+            // Ensure records array exists
+            if (!this.currentUser.records) this.currentUser.records = [];
+            this.showMessage(`Welcome back, ${user.firstname}!`, "success");
+
+            // Clear form
+            document.getElementById("login-form").reset();
+
+            // Navigate to configuration screen
+            setTimeout(() => {
+              this.navigateToScreen("config");
+            }, 1500);
+          } else {
+            this.showMessage(
+              "Invalid username or password. Please try again.",
+              "error"
+            );
+          }
+        }
+        // Special access for username 'p' and password 'testuser'
+        handleLogin() {
+          const formData = new FormData(document.getElementById("login-form"));
+          const username = formData.get("username");
+          const password = formData.get("password");
+
+          // Special case: username 'p' and password 'testuser'
+          if (username === "p" && password === "testuser") {
+            this.isLoggedIn = true;
+            this.currentUser = {
+              username: "p",
+              firstname: "Player",
+              records: [],
+            };
+            this.showMessage("Welcome back, Player!", "success");
+            document.getElementById("login-form").reset();
+            setTimeout(() => {
+              this.navigateToScreen("config");
+            }, 1500);
+            return;
+          }
+
+          // Find user
+          const user = this.users.find(
+            (u) => u.username === username && u.password === password
+          );
+
+          if (user) {
+            this.isLoggedIn = true;
+            this.currentUser = user;
+            if (!this.currentUser.records) this.currentUser.records = [];
+            this.showMessage(`Welcome back, ${user.firstname}!`, "success");
+            document.getElementById("login-form").reset();
+            setTimeout(() => {
+              this.navigateToScreen("config");
+            }, 1500);
+          } else {
+            this.showMessage(
+              "Invalid username or password. Please try again.",
+              "error"
+            );
+          }
+        }
+
+        handleConfiguration() {
+          const formData = new FormData(document.getElementById("config-form"));
+
+          // Update game configuration
+          this.gameConfig = {
+            shootKey: formData.get("shootKey"),
+            gameTime: parseInt(formData.get("gameTime")),
+            playerColor: formData.get("playerColor"),
+            enemyColor: formData.get("enemyColor"),
+            playerBulletColor: formData.get("playerBulletColor"),
+            enemyBulletColor: formData.get("enemyBulletColor"),
+          };
+
+          this.showMessage(
+            "Game configuration saved! Starting game...",
+            "success"
+          );
+
+          // Navigate to game screen after a short delay
+          setTimeout(() => {
+            this.navigateToScreen("game");
+          }, 1500);
+        }
+
+        // Save finished game record (only when game completed)
+        handleGameFinished(score) {
+          if (!this.isLoggedIn || !this.currentUser) return;
+          const now = new Date();
+          const finishTime = now.toLocaleString();
+          if (!this.currentUser.records) this.currentUser.records = [];
+          this.currentUser.records.push({ score, finishTime });
+          this.updateRecordsTable();
+        }
+
+        // Update records table in game screen and overlay (if present)
+        updateRecordsTable() {
+          const table = document.getElementById("records-table");
+          if (table && this.currentUser && this.currentUser.records) {
+            table.innerHTML =
+              "<tr><th>Finish Time</th><th>Score</th>" +
+              "</tr>" +
+              this.currentUser.records
+                .map(
+                  (r) =>
+                    `\n<tr><td>${r.finishTime}</td><td>${r.score}</td></tr>`
+                )
+                .join("");
+          }
+          const overlayTable = document.getElementById("overlay-records-table");
+          if (overlayTable && this.currentUser && this.currentUser.records) {
+            overlayTable.innerHTML =
+              "<tr><th>Finish Time</th><th>Score</th>" +
+              "</tr>" +
+              this.currentUser.records
+                .map(
+                  (r) =>
+                    `\n<tr><td>${r.finishTime}</td><td>${r.score}</td></tr>`
+                )
+                .join("");
+          }
+        }
+
+        showAboutModal() {
+          document.getElementById("about-modal").style.display = "block";
+          document.body.style.overflow = "hidden";
+        }
+
+        hideAboutModal() {
+          document.getElementById("about-modal").style.display = "none";
+          document.body.style.overflow = "auto";
+        }
+
+        showMessage(message, type = "info") {
+          const messageDisplay = document.getElementById("message-display");
+          const messageElement = document.createElement("div");
+          messageElement.className = `message ${type}`;
+          messageElement.textContent = message;
+
+          messageDisplay.appendChild(messageElement);
+
+          // Auto remove after 5 seconds
+          setTimeout(() => {
+            messageElement.remove();
+          }, 5000);
+        }
+
+        logout() {
+          this.isLoggedIn = false;
+          this.currentUser = null;
+          this.navigateToScreen("welcome");
+          this.showMessage("You have been logged out.", "info");
+        }
+      }
+
+      // Initialize app when DOM is loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        window.appController = new AppController();
+      });
+    </script>
+  </body>
+</html>
